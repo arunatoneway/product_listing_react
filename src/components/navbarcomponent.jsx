@@ -7,6 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Navbarcomp() {
+  
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -20,8 +21,8 @@ function Navbarcomp() {
           >
             
             <NavDropdown title="Category" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Electronics</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Kitchen Appliances</NavDropdown.Item>
+              <Button variant="outline-success" id='elecbtn'>Electonics</Button>
+              <NavDropdown.Item href="#action4">Appliances</NavDropdown.Item>
               <NavDropdown.Item href="#action4">Fashion</NavDropdown.Item>
               <NavDropdown.Item href="#action4">Toys</NavDropdown.Item>
               <NavDropdown.Item href="#action4">Grocery</NavDropdown.Item>

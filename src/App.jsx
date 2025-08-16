@@ -1,10 +1,15 @@
 import Navbarcomp from "./components/navbarcomponent"
 
-function App() {
+function App() { 
+
+  
+
+  
 
   return (
     <>
       <Navbarcomp />
+      
 
 
       <h1>helloo world</h1>
