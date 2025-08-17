@@ -1,15 +1,90 @@
 import Navbarcomp from "./components/navbarcomponent"
+import { useState } from "react";
 
-function App() { 
+function App() {
 
-  
+  const products = [
+    {
+      title: "Smart Phone",
+      category: "Electronics",
+      ratting: "4",
+      price: "10000"
+    },
+    {
+      title: "Fan",
+      category: "Appliances",
+      ratting: "4",
+      price: "10000"
+    },
+    {
+      title: "Shirt",
+      category: "Fashion",
+      ratting: "4",
+      price: "10000"
+    },
+    {
+      title: "Headset",
+      category: "Electronics",
+      ratting: "4",
+      price: "10000"
+    }
+  ]
 
-  
+  const [list, setList] = useState(products)
+
+  const filterfnc = (filtertype)=>{
+    if(filtertype==="Electonics"){
+
+      setList(products.filter((value)=>{
+        return value.category == 'Electronics'
+      }))
+
+      console.log(list)
+      
+    }
+    else if(filtertype==="Appliances"){
+
+      setList(products.filter((value)=>{
+        return value.category == 'Appliances'
+      }))
+
+      console.log(list)
+
+    }
+    else if(filtertype==="Fashion"){
+
+      setList(products.filter((value)=>{
+        return value.category == 'Fashion'
+      }))
+
+      console.log(list)
+
+    }
+    else if(filtertype==="Toys"){
+
+      setList(products.filter((value)=>{
+        return value.category == 'Toys'
+      }))
+
+      console.log(list)
+
+    }
+    else if(filtertype==="Grocery"){
+
+      setList(products.filter((value)=>{
+        return value.category == 'Grocery'
+      }))
+
+      console.log(list)
+
+    }
+  };
+
 
   return (
     <>
-      <Navbarcomp />
-      
+      <Navbarcomp filter = {filterfnc}/>
+
 
 
       <h1>helloo world</h1>

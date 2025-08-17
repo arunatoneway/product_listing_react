@@ -6,7 +6,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Navbarcomp() {
+
+
+
+
+function Navbarcomp({filter}) {
   
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -21,11 +25,11 @@ function Navbarcomp() {
           >
             
             <NavDropdown title="Category" id="navbarScrollingDropdown">
-              <Button variant="outline-success" id='elecbtn'>Electonics</Button>
-              <NavDropdown.Item href="#action4">Appliances</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Fashion</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Toys</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Grocery</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=>filter("Electonics")} id='elecbtn'>Electonics</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=> filter("Appliances")} href="#action4">Appliances</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=> filter("Fashion")} href="#action4">Fashion</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=> filter("Toys")} href="#action4">Toys</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=> filter("Grocery")} href="#action4">Grocery</NavDropdown.Item>
               
             </NavDropdown>
             <NavDropdown title="Sort" id="navbarScrollingDropdown2">
