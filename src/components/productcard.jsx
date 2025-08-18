@@ -1,21 +1,50 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-function productcard(props) {
+import Col from 'react-bootstrap/Col';
+
+
+
+function Productcard({ product }) {
+
+    function addtocart(name,price){
+       return alert(`Item has been added to cart
+                Item  : ${name}
+                Price : ${price}`)
+    
+    }
+
     return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                    Some quick example text to build on the card title and make up the
-                    bulk of the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-        </Card>
+        
+
+            <>{product.map((pd) => {
+                return <Col xs={12} sm={6} md={4} lg={3} xl={2}>
+                    <Card  style={{ width: 'auto', marginBottom:'24px' }}>
+                        <Card.Img variant="top" src = {pd.image}  style={{height:'200px'}} />
+                        
+                        <Card.Body>
+                            <Card.Title>{pd.title}</Card.Title>
+                            <Card.Text>
+                                Ratting : {pd.ratting}
+                                <br />
+                                Price : {pd.price}
+                            </Card.Text>
+                            <Button variant="primary" onClick={()=>addtocart(pd.title,pd.price)}>Add to Cart</Button>
+                        </Card.Body>
+                    </Card>
+
+                </Col>
+
+
+
+            })}</>
+
+
+
+        
     );
 }
 
-export default productcard
+export default Productcard

@@ -11,11 +11,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function Navbarcomp({filter}) {
-  
+  let searchfield = document.getElementById('searchfield')
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        <Navbar.Brand href="#">ShopBuy</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -25,6 +25,7 @@ function Navbarcomp({filter}) {
           >
             
             <NavDropdown title="Category" id="navbarScrollingDropdown">
+              <NavDropdown.Item onClick={()=>filter("All")} >All</NavDropdown.Item>
               <NavDropdown.Item onClick={()=>filter("Electonics")} id='elecbtn'>Electonics</NavDropdown.Item>
               <NavDropdown.Item onClick={()=> filter("Appliances")} href="#action4">Appliances</NavDropdown.Item>
               <NavDropdown.Item onClick={()=> filter("Fashion")} href="#action4">Fashion</NavDropdown.Item>
@@ -33,10 +34,10 @@ function Navbarcomp({filter}) {
               
             </NavDropdown>
             <NavDropdown title="Sort" id="navbarScrollingDropdown2">
-              <NavDropdown.Item href="#action3">Low to High Price</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">High to Low Price</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Low to High Ratings</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">High to Low Ratings</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=>filter("LtoHPrice")}>Low to High Price</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=>filter("HtoLPrice")}>High to Low Price</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=>filter("LtoHRattings")}>Low to High Ratings</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=>filter("HtoLRattings")}>High to Low Ratings</NavDropdown.Item>
 
               
             </NavDropdown>
@@ -47,8 +48,9 @@ function Navbarcomp({filter}) {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              id="searchfield"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success" onClick={()=>{filter(`Search${searchfield.value}`); searchfield.value =""}}>Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
